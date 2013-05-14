@@ -9,7 +9,7 @@ def hello(request):
 def current_datetime(request):
 	now = datetime.datetime.now()
 	t = get_template('current_datetime.html')
-	html = "<html><body>It is now %s.</body></html>" % now
+	html = t.render(Context({'current_date' : now}))
 	return HttpResponse(html)
 	
 def hours_ahead(request, offset):
